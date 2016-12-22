@@ -1,4 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require 'shoulda/matchers'
+
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
@@ -43,8 +45,17 @@ RSpec.configure do |config|
   #Including to test requests
   config.include Request::JsonHelpers, :type => :controller
   config.include Request::HeadersHelpers, :type => :controller
+  config.include Devise::TestHelpers, :type => :controller
 
   config.before(:each, type: :controller) do
     include_default_accept_headers
+  end
+end
+
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
   end
 end

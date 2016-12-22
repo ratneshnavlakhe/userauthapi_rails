@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '4.2.7.1'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -37,7 +37,7 @@ end
 
 group :test do
   gem "rspec-rails"
-  gem "shoulda-matchers"
+  gem "shoulda-matchers", require: false
 end
 
 gem "devise"
